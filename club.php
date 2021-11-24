@@ -1,4 +1,5 @@
 <?php
+include "config.php";
 class club{
     private  $id=null;
     private  $nom=null;
@@ -50,5 +51,15 @@ class club{
         echo"<b> domaine :</b>".$this->domaine. "<br>";
         
     }
+    public function  affiche(){
+        $sql="Select * FROM club";
+        try{
+        $db = config::getConnection();
+        $liste = $db->Query($sql);
+        return $liste;
+    }
+catch(exception $e){
+    die ($e -> getMesssage(""))
+}}
 }
 ?>
