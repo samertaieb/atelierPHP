@@ -54,12 +54,12 @@ class club{
     public function  affiche(){
         $sql="Select * FROM club";
         try{
-        $db = config::getConnection();
+        $db = config::getConnexion();
         $liste = $db->Query($sql);
         return $liste;
     }
 catch(exception $e){
-    die ($e -> getMesssage(""))
+    die ($e -> getMesssage(""));
 }}
 }
 ?>
