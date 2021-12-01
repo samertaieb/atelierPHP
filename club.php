@@ -61,5 +61,22 @@ class club{
 catch(exception $e){
     die ($e -> getMesssage(""));
 }}
+    public function Insertion(club$c){
+        $sql="INSERT Into club (id,nom,description,adresse,domaine)
+        VALUES(:id ,:nom,:description,:adresse,:domaine)";
+        $db=Config :: getconnexion();
+        $req = $db ->prepare($sql);
+        $i = $c->getid();
+        $n = $c->getnom();
+        $d=$c->getdescription();
+        $ad = $c->getadresse();
+        $do= $c->getdomaine();
+        $req -> bindValue(':id',$i);
+        $req -> bindValue(':nom',$n);
+        $req -> bindValue(':description',$d);
+        $req -> bindValue(':adresse',$ad);
+        $req -> bindValue(':domaine',$do);
+        $req-> execute();
+    }
 }
 ?>
